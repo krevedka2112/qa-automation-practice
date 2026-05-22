@@ -1,0 +1,8 @@
+{
+  "web": {
+    "login_url": "https://the-internet.herokuapp.com/login",
+    "api_url": "https://api.restful-api.dev"
+  },
+  "username": "tomsmith",
+  "password": "SuperSecretPassword!"
+}

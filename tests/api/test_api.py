@@ -60,6 +60,7 @@ def test_update_object(api_client, created_object):
     assert response.status_code == HTTPStatus.OK
 
     data = response.json()
+    assert data["id"] == created_object["id"]
     assert data["name"] == updated_name
     assert data["data"]["price"] == updated_price
     assert data["data"]["year"] == updated_year
@@ -73,5 +74,5 @@ def test_delete_object(api_client, created_object):
     assert delete_response.status_code == HTTPStatus.OK
     assert delete_response.json()["message"] == f'Object with id = {created_object["id"]} has been deleted.'
 
-    get_res = api_client.get_object(created_object["id"])
-    assert get_res.status_code == HTTPStatus.NOT_FOUND
+    get_resp = api_client.get_object(created_object["id"])
+    assert get_resp.status_code == HTTPStatus.NOT_FOUND
